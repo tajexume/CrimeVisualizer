@@ -1,4 +1,29 @@
-
 body {
-  background-color: #edddd4;
+  background-image: linear-gradient(to bottom right, #a3a380, #edddd4);
+  font-family: 'Kanit', sans-serif;
+  margin-bottom: 100%;
+}
+
+#top_plate {
+  background-image: linear-gradient(to top right, #64dfdf, #6930c3);
+
+  }
+
+#intro_txt {
+  text-align: center;
+  font-family: 'Noto Serif', serif;
+}
+
+.pic_info {
+  font-size: 15px;
+}
+a:link, a:visited {
+  text-decoration: none;
+  color: #161a1d;
+}
+.center{
+  margin: auto;
+}
+a:hover{
+  color: #bf0603;
 }

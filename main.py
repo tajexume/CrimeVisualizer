@@ -12,14 +12,26 @@ from matplotlib.figure import Figure
 
 app = Flask(__name__)
 
-
-def getCrimeOris():
-    url = "https://api.usa.gov/crime/fbi/sapi/api/agencies"
+def getCrimeData(**kwargs):
+    '''    seleceted_options = []
+    for stat in kwargs:
+        if type(stat) is str:
+            seleceted_options.append(stat)
+        else:
+            continue'''
+    qeury_options = ["agencies"]
+    url = "https://api.usa.gov/crime/fbi/sapi/api/"
     crime_key = os.environ.get("crime_key")
     param = {'api_key': crime_key
              }
     request = requests.get(url=url, params=param)
     data = request.json()
+    return data
+
+
+
+def getCrimeOris():
+    data = getCrimeData()
     codes = {}
     abbr = ['AL', 'DC', 'KY', 'OH', 'AK', 'LA', 'OK', 'AZ', 'ME', 'OR', 'AR', 'MD', 'PA', 'MA', 'MI', 'RI', 'CO', 'MN',
             'CT', 'MS', 'SD', 'DE', 'MO', 'TN', 'MT', 'TX', 'FL', 'NE', 'GA', 'NV', 'UT', 'NH', 'VT', 'HI', 'NJ', 'VA',
@@ -51,7 +63,7 @@ def home():
     # Generate the figure **without using pyplot**.
     fig = Figure()
     ax = fig.subplots()
-    ax.plot([1, 2])
+    ax.plot([4, 2])
     fig.savefig("static/css/graph.png")
     return render_template('index.html', img="static/css/graph.png")
 
@@ -59,11 +71,26 @@ def home():
 ####TODO:Make a resources page for people who want to reference data sources
 @app.route('/resources')
 def resources():
-    pass
+    return render_template('resources.html')
+
+
 #####TODO:Have mission page and future outlooks for more context and features for data
 @app.route('/mission')
 def mission():
+    return render_template('mission.html')
+
+
+######TODO:Create search page where visitors can create graphs with their own search criteria
+@app.route('/search')
+def search():
+    return render_template('search.html')
+
+
+#######TODO:Create search results page
+@app.route('/search_results/<path:search_params>')
+def searchResults(search_params):
     pass
+
 
 if __name__ == "__main__":
     app.run(debug=True)

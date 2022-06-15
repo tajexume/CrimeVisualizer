@@ -2,23 +2,35 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Crime Visualizer</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
-
+    {%include "header.html"%}
   </head>
   <body>
-    <div class="container">
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg p-2 my-1 text-center" id="intro_txt">
+          <h2>🚓Welcome!🚓</h2>
+          <p>This site is for visualizing crime data that has been gathered by the <u><a href="https://crime-data-explorer.fr.cloud.gov/pages/hom">Crime API</a></u>.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xlg align-self-center">
+
+        </div>
+      </div>
       <div class="row">
         <div class="col-med">
-        <img src="{{img}}" alt="graph">
+        <img src="{{img}}" class="img-fluid" alt="graph">
         </div>
         <div class="col-sm align-self-center">
           <p>Crime data being explained right here on the front page dfsadffasfsdfdsfsffdsfds</p>
         </div>
-
       </div>
-
+      <div class="row">
+        <div class="col-med pic_info">
+          <p><em>(Data attained through the FBI Crime API)</em></p>
+        </div>
+      </div>
     </div>
   </body>
 </html>
