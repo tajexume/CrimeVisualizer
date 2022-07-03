@@ -19,7 +19,7 @@ body {
 }
 a:link, a:visited {
   text-decoration: none;
-  color: #161a1d;
+  color: inherit;
 }
 .center{
   margin: auto;
